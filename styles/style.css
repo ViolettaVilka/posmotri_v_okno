@@ -50,17 +50,11 @@ ol {
   white-space: nowrap;
 }
 
-.preloader {
-  top: 50%;
-  left: 50%;
-}
-
 .content {
   display: flex;
   flex-direction: row;
   align-items: end;
-  /* max-width: 1140px; */
-  /* height: 534px; */
+  max-width: 1140px;
   gap: 30px;
 }
 
@@ -72,12 +66,13 @@ ol {
   cursor: pointer;
   padding: 6px;
   background-color: transparent;
-  border: solid 1px #fff;
-  font-family: Fira Sans Condensed;
+  border: 1px solid #fff;
+  font-family: 'Fira Sans Condensed', sans-serif;
   color: #fff;
   font-size: 18px;
   font-weight: 700;
   line-height: 21.6px;
+  appearance: none;
 }
 
 .button:focus {
@@ -106,12 +101,15 @@ ol {
 .result__video {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .result__video-container {
   position: relative;
   width: 711px;
-  padding-bottom: 16px;
+  height: 386px;
+  margin-bottom: 16px;
 }
 
 .search-form {
@@ -122,15 +120,16 @@ ol {
 }
 
 .search-form__label {
-  appearance: none;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: row;
   width: fit-content;
   cursor: pointer;
 }
 
 .search-form__fieldset {
-  border: 0;
+  border: none;
 }
 
 .search-form__fieldset-title {
@@ -145,24 +144,22 @@ ol {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-  color: #fff;
-  width: 225px;
-}
-
-.search-form__textfield:focus {
-  outline: none;
-}
-
-.search-form__label > input {
+  color: rgb(255 255 255/70%);
+  min-width: 225px;
+  appearance: none;
   border-top: 1px solid #fff;
   border-right:  0;
   border-bottom: 1px solid #fff;
   border-left:   0;
 }
 
+.search-form__textfield:focus {
+  outline: none;
+}
+
 .search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
-  outline-offset: 1px;
+  outline-offset: 2px;
 }
 
 .search-form__checkbox-list {
@@ -175,24 +172,19 @@ ol {
   margin-left: 5px;
 }
 
-.search-form__pseudo-checkbox  {
+.search-form__pseudo-checkbox {
   content: "";
-  width: 19px;
-  height: 19px;
+  width: 17px;
+  height: 17px;
   outline: solid 1px #fff;
   display: flex;
 }
 
-.search-form__checkbox:checked + .search-form__pseudo-checkbox  {
+.search-form__checkbox:checked + .search-form__pseudo-checkbox {
   content: "";
   background-color: #fff;
   outline: 1px solid #fff;
-  outline-offset: 1px;
-}
-
-.search-form__checkbox:focus + .search-form__pseudo-checkbox::before {
-  outline: 1px solid #fff;
-  outline-offset: 1px;
+  outline-offset: 2px;
 }
 
 .search-form__label:hover > .search-form__label-text {
@@ -214,7 +206,7 @@ ol {
 
 
 .content__details {
-  width: 100%;
+  width: 399px;
 }
 
 .content__list {
@@ -224,7 +216,6 @@ ol {
   height: 298px;
   overflow-y: scroll;
   scrollbar-width: thin;
-  scrollbar-color: #000;
   position: relative;
   margin: 2px;
 }
@@ -254,6 +245,8 @@ ol {
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .content__card-link {
@@ -265,6 +258,7 @@ ol {
 
 .content__video-card-description-container {
   margin: 2px;
+  flex-grow: 1;
 }
 
 .content__video-card-title {
@@ -273,11 +267,20 @@ ol {
   font-weight: 700;
   line-height: 30px;
   text-transform: uppercase;
+  max-width: 190px;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .content__video-card-description {
   line-height: 16.2px;
   margin-top: 6px;
+  max-width: 190px;
+  max-height: 65px;
+  text-overflow:ellipsis;
+  white-space: wrap;
+  overflow: hidden;
 }
 
 .content__card-link_current {
@@ -288,18 +291,16 @@ ol {
   background-color: #545050
 }
 
+.content__card-link:focus {
+  outline: none;
+}
+
 .content__card-link:focus-visible {
   outline: 1px solid #fff;
   outline-offset: 1px;
 }
 
-.content__card-link:hover .content__video-card-title {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-}
-
-.content__card-link:hover .content__video-card-description {
+.content__card-link:hover {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
@@ -312,11 +313,6 @@ ol {
 .more-button {
   width: 100%;
   margin-bottom: 1px;
-}
-
-.fieldset {
-  border: none;
-  appearance: none;
 }
 
 
